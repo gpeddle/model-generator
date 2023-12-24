@@ -1,0 +1,56 @@
+<model>
+  <class name="Address">
+    <properties>
+      <property name="id" type="uuid" required="true" />
+      <property name="street" type="string" required="true" />
+      <property name="city" type="string" required="true" />
+      <property name="state" type="string" />
+      <property name="postalCode" type="string" required="true" />
+    </properties>
+  </class>
+  
+  <class name="Customer">
+    <properties>
+      <property name="id" type="uuid" required="true" />
+      <property name="firstName" type="string" required="true" />
+      <property name="lastName" type="string" required="true" />
+      <property name="email" type="string" />
+      <property name="phone" type="string" />
+      <property name="addresses" type="Address" isCollection="true" />
+    </properties>
+  </class>
+  
+  <class name="Service">
+    <properties>
+      <property name="id" type="uuid" required="true" />
+      <property name="name" type="string" required="true" />
+      <property name="description" type="string" />
+      <property name="price" type="number" required="true" />
+    </properties>
+  </class>
+  
+  <class name="Quote">
+    <properties>
+      <property name="id" type="uuid" required="true" />
+      <property name="customerId" type="string" required="true" />
+      <property name="serviceId" type="string" required="true" />
+      <property name="date" type="date" required="true" />
+      <property name="totalAmount" type="number" required="true" />
+      <property name="status" type="string" />
+      <property name="address" type="Address" required="true" />
+    </properties>
+  </class>
+  
+  <class name="WorkOrder">
+    <properties>
+      <property name="id" type="uuid" required="true" />
+      <property name="quoteId" type="string" required="true" />
+      <property name="date" type="date" required="true" />
+      <property name="description" type="string" />
+      <property name="hoursWorked" type="number" required="true" />
+      <property name="materialsUsed" type="string" />
+      <property name="totalCost" type="number" required="true" />
+      <property name="address" type="Address" required="true" />
+    </properties>
+  </class>
+</model>

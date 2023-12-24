@@ -1,0 +1,41 @@
+{{ range .Classes }}
+class {{ .Name }} {
+{{- range .Properties -}}
+  {{ if not .IsCollection }}
+  public {{ .Name }}: {{ .Type }};
+  {{- end }}
+{{- end }}
+  constructor(
+    {{ range .Properties }}
+        {{- if not .IsCollection -}}
+        {{ .Name }}: {{ .Type }}, {{- end }}
+    {{ end -}}
+) {
+{{- range .Properties -}}
+{{ if not .IsCollection }}
+    this.{{ .Name }} = {{ .Name }};
+{{- end -}}
+{{- end -}}
+}
+{{- range .Properties -}}
+{{- if .IsCollection }}
+  private _{{ .Name }}: {{ .Type }}[] = [];
+
+  {{ .Name }}(): {{ .Type }}[] {
+    return this._{{ .Name }};
+  }
+
+  add{{ capitalize .Name }}({{ .Name }}: {{ .Type }}) {
+    this.{{ .Name }}.push({{ .Name }});
+  }
+
+  remove{{ capitalize .Name }}({{ .Name }}: {{ .Type }}) {
+    const index = this.{{ .Name }}.indexOf({{ .Name }});
+    if (index !== -1) {
+      this.{{ .Name }}.splice(index, 1);
+    }
+  }
+{{- end -}}
+{{- end }}
+}
+{{ end }}
