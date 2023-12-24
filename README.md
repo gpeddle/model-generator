@@ -67,26 +67,6 @@ Customization
 
 You can customize the code generation templates to match your desired output format. Modify the template file (model-template.hbs) to generate code that suits your project's needs.
 
-## Contributing
-
-To contribute to the Model Generator, please follow these steps:
-
-1. Fork this repository.
-
-2. Create a new branch for your feature or bug fix:
-
-   `git checkout -b feature/your-feature-name`
-
-3. Make your changes and commit them:
-
-   `git commit -m "Add your commit message here"`
-
-4. Push your changes to your forked repository:
-
-   `git push origin feature/your-feature-name`
-
-Create a pull request to the main repository, explaining your changes and improvements.
-
 ## License
 
 This project is licensed under the MIT License.
